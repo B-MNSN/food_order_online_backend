@@ -8,6 +8,7 @@ const authRoutes = require('./routes/authRoutes');
 const restaurantsRoutes = require('./routes/restaurantsRoutes');
 const foodMenuRoutes = require('./routes/foonMenuRoutes');
 const userRoutes = require('./routes/userRoutes');
+const orderFoodRoutes = require('./routes/orderFoodRoutes');
 const path = require('path');
 
 const app = express();
@@ -27,6 +28,7 @@ app.use('/auth', authRoutes);
 app.use('/restaurants', restaurantsRoutes);
 app.use('/foodMenu', foodMenuRoutes);
 app.use('/user', userRoutes);
+app.use('/orderFoods', orderFoodRoutes);
 
 //server listening
 server.listen(port, () => {
