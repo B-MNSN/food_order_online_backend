@@ -7,7 +7,8 @@ const bodyParser = require('body-parser');
 const authRoutes = require('./routes/authRoutes');
 const restaurantsRoutes = require('./routes/restaurantsRoutes');
 const foodMenuRoutes = require('./routes/foonMenuRoutes');
-const db = require('./db/db');
+const userRoutes = require('./routes/userRoutes');
+const path = require('path');
 
 const app = express();
 const server  = http.createServer(app);
@@ -21,9 +22,11 @@ app.use(cors());
 
 // Middleware
 app.use(bodyParser.json());
+app.use('/uploads', express.static(path.join(__dirname, 'tmp/uploads')));
 app.use('/auth', authRoutes);
 app.use('/restaurants', restaurantsRoutes);
 app.use('/foodMenu', foodMenuRoutes);
+app.use('/user', userRoutes);
 
 //server listening
 server.listen(port, () => {
